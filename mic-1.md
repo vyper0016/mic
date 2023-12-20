@@ -72,4 +72,4 @@ Wir haben im Hauptspeicher drei verschiedene Speicherbereiche:
 - `Stack Frame`
 - `Method Area`
 
-Wir interagieren mit dem Hauptspeicher über die `MAR` und `MDR` [Registers](###Namen).
+Wir interagieren mit dem Hauptspeicher über die `MAR` und `MDR` [Registers](#Namen).
