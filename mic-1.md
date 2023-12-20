@@ -1,8 +1,8 @@
 # Mic-1
 
-![](../2023-12-20-15-55-38.png)
-
 ## Registers
+
+![mic1](img/2023-12-20-15-59-37.png)
 
 Registers sind im wesentlichen 32-Bit/4-byte Speicher (Ausnahme: `MBR` nur 1 Byte/8 Bit breit)
 
