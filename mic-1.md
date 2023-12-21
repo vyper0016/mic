@@ -179,4 +179,3 @@ Wir nehmen die 9-Bit Addresse die in `MPC` steht und laden die Mikroinstruktion 
 ### Steigende Flanke
 
 - Register werden vom ``C-Bus`` neugeladen.
-
