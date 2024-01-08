@@ -1,5 +1,42 @@
 # Mic-1
 
+- [Mic-1](#mic-1)
+  - [Registers](#registers)
+    - [Namen](#namen)
+    - [Descriptionen](#descriptionen)
+      - [`MDR`: Memory Data Register](#mdr-memory-data-register)
+      - [`MAR`: Memory Address Register](#mar-memory-address-register)
+      - [`PC`: Program Counter](#pc-program-counter)
+      - [`MBR`: Memory Buffer Register](#mbr-memory-buffer-register)
+    - [`MBRU` *(pseudo)*: Memory Buffer Register Unsigned](#mbru-pseudo-memory-buffer-register-unsigned)
+      - [`SP`: Stack Pointer](#sp-stack-pointer)
+      - [`LV`: Local Variable](#lv-local-variable)
+      - [`CPP`: Constant Pool Pointer](#cpp-constant-pool-pointer)
+      - [`TOS`: Top of Stack](#tos-top-of-stack)
+      - [`OPC`: Old Program Counter](#opc-old-program-counter)
+      - [`H`: Help Register](#h-help-register)
+  - [ALU](#alu)
+  - [Hauptspeicher](#hauptspeicher)
+  - [Zyklus](#zyklus)
+    - [Speichern](#speichern)
+    - [Laden](#laden)
+    - [Bytecode Zugriff](#bytecode-zugriff)
+  - [Mikroinstruktionen](#mikroinstruktionen)
+    - [Mikroinstruktionen Format](#mikroinstruktionen-format)
+      - [Addr (9 Bit)](#addr-9-bit)
+      - [JAM (3 Bit)](#jam-3-bit)
+      - [ALU (8 Bit)](#alu-8-bit)
+      - [C-Bus (9 Bit)](#c-bus-9-bit)
+      - [Mem (3 Bit)](#mem-3-bit)
+      - [B (4 Bit)](#b-4-bit)
+  - [Kontrollpfad](#kontrollpfad)
+  - [Ablauf eines Zyklus](#ablauf-eines-zyklus)
+    - [Δw](#δw)
+    - [Δx](#δx)
+    - [Δy](#δy)
+    - [Δz](#δz)
+    - [Steigende Flanke](#steigende-flanke)
+
 ## Registers
 
 ![mic1](img/2023-12-20-15-59-37.png)
@@ -40,7 +77,11 @@ Beinhaltet die Adresse des nächsten Befehls (in der Method Area). Wird nach jed
 
 #### `MBR`: Memory Buffer Register
 
-Beinhaltet das Wert des Speicherwortes, die in Adresse `PC` steht. Also was als nächstes ausgeführt werden soll.
+Beinhaltet das Wert des Speicherwortes, die in Adresse `PC` steht. Also was als nächstes ausgeführt werden soll. (Vorzeichenbehaftet)
+
+### `MBRU` *(pseudo)*: Memory Buffer Register Unsigned
+
+Vorzeichenlose Variante von `MBR`. Wird für Vorzeichenlose Operanden verwendet (z.B. `varnum`).
 
 #### `SP`: Stack Pointer
 
@@ -59,6 +100,8 @@ Adresse des ersten Elements im Constant Pool. Es ändert sich nicht während der
 Wert des obersten Wort auf dem Stack.
 
 #### `OPC`: Old Program Counter
+
+Wird benutzt um verschiedene Werte zwischenzuspeichern. (z.B. `PC` bei `GOTO` / `TOS` bei `if_icmpeq`)
 
 #### `H`: Help Register
 
@@ -83,7 +126,7 @@ Wir haben im Hauptspeicher drei verschiedene Speicherbereiche:
 - `Stack Frame`
 - `Method Area`
 
-Wir interagieren (rd, write, fetch) mit dem Hauptspeicher über die `MAR` und `MDR` [Registers](#namen).
+Wir interagieren (rd, write, fetch) mit dem Hauptspeicher über die `MAR`, `MDR` (für rd und wr) und `PC` (für fetch) [Registers](#namen).
 
 ## Zyklus
 
