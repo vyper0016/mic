@@ -79,7 +79,7 @@ Beinhaltet die Adresse des nächsten Befehls (in der Method Area). Wird nach jed
 
 Beinhaltet das Wert des Speicherwortes, die in Adresse `PC` steht. Also was als nächstes ausgeführt werden soll. (Vorzeichenbehaftet)
 
-### `MBRU` *(pseudo)*: Memory Buffer Register Unsigned
+#### `MBRU` *(pseudo)*: Memory Buffer Register Unsigned
 
 Vorzeichenlose Variante von `MBR`. Wird für Vorzeichenlose Operanden verwendet (z.B. `varnum`).
 
