@@ -8,7 +8,7 @@
       - [`MAR`: Memory Address Register](#mar-memory-address-register)
       - [`PC`: Program Counter](#pc-program-counter)
       - [`MBR`: Memory Buffer Register](#mbr-memory-buffer-register)
-    - [`MBRU` *(pseudo)*: Memory Buffer Register Unsigned](#mbru-pseudo-memory-buffer-register-unsigned)
+      - [`MBRU` *(pseudo)*: Memory Buffer Register Unsigned](#mbru-pseudo-memory-buffer-register-unsigned)
       - [`SP`: Stack Pointer](#sp-stack-pointer)
       - [`LV`: Local Variable](#lv-local-variable)
       - [`CPP`: Constant Pool Pointer](#cpp-constant-pool-pointer)
