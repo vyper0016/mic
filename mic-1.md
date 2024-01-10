@@ -65,7 +65,7 @@ Registers mit Specherzugriff:
 
 #### `MDR`: Memory Data Register
 
-Beinhaltet das Wert des Speicherwortes, das gelesen oder geschrieben werden soll.
+Beinhaltet das Wert des Speicherwortes, das gelesen wird oder geschrieben werden soll.
 
 #### `MAR`: Memory Address Register
 
@@ -184,7 +184,7 @@ Welche Register vom C-Bus geschrieben werden sollen, je nachdem welche Bits auf 
 
 #### Mem (3 Bit)
 
-
+`rd`, `wr` oder `fetch` Signal für den Hauptspeicher.
 
 #### B (4 Bit)
 
