@@ -69,11 +69,11 @@ Beinhaltet das Wert des Speicherwortes, das gelesen wird oder geschrieben werden
 
 #### `MAR`: Memory Address Register
 
-Beinhaltet die Adresse des Speicherwortes, das gelesen oder geschrieben werden soll.
+Beinhaltet die Adresse des Speicherwortes, das gelesen wird oder geschrieben werden soll.
 
 #### `PC`: Program Counter
 
-Beinhaltet die Adresse des nächsten Befehls (in der Method Area). Wird nach jedem Befehl inkrementiert.
+Beinhaltet die Adresse des nächsten Befehls (in der Method Area). Wird nach jedem Befehl inkrementiert. (in Main1 / 0x100)
 
 #### `MBR`: Memory Buffer Register
 
@@ -89,7 +89,7 @@ Beinhaltet die Adresse des obersten Elements auf dem Stack.
 
 #### `LV`: Local Variable
 
-Beinhaltet die Adresse der unteren Rand des aktuellen Stackframes (`OBJREF`).
+Beinhaltet die Adresse der unteren Rand des aktuellen Stackframes (`OBJREF`). Es wird benutzt, um auf lokale Variablen zuzugreifen. (z.B liegt die 2. lokale Variable in `LV + 2`)
 
 #### `CPP`: Constant Pool Pointer
 
@@ -97,7 +97,7 @@ Adresse des ersten Elements im Constant Pool. Es ändert sich nicht während der
 
 #### `TOS`: Top of Stack
 
-Wert des obersten Wort auf dem Stack.
+Beinhaltet konventionell den Wert des obersten Elements auf dem Stack. dieser Zustand wird nach jedem voreingestellten Mikroprogramm (z. B. bipush) erreicht, muss aber in einem selbst implementierten Mikroprogramm manuell eingestellt werden.
 
 #### `OPC`: Old Program Counter
 
